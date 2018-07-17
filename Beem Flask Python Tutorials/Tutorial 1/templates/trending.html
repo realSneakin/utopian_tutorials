@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block body %}
+{% for post in trending_posts %}
+<section class="section blog-area">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-md-12">
+				<div class="blog-posts">
+					<div class="single-post">
+						{% if post["image"] %}
+						<div class="image-wrapper"><img src="{{ post['image'] }}" height="500px" width="800px" alt="Blog Image"></div>
+						{% endif %}
+						<div class="icons">
+							<div class="left-area">
+							</div>
+						</div>
+						<p class="date"><em>By {{ post["author"] }}</em></p>
+						<h3 class="title"><a href="#"><b class="light-color">{{ post["title"] }}</b></a></h3>
+						<a class="btn read-more-btn" href="#"><b>Read The Post</b></a>
+					</div><!-- single-post -->
+				</div><!-- blog-posts -->
+			</div><!-- col-lg-4 -->
+		</div><!-- row -->
+	</div><!-- container -->
+</section><!-- section -->
+{% endfor %}
+{% endblock %}
