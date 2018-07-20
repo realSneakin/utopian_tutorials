@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="container" style="padding: 50px">
+	<section class="blog-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-md-12">
+					<div class="blog-posts">
+						<div class="single-post">
+							<div class="image-wrapper"><img src="{{ json_metadata['image'][0] }}" alt="Blog Image"></div>
+							<div class="icons">
+								<div class="left-area">
+									<a class="btn caegory-btn" href="#"><b>{{ post["category"] }}</b></a>
+								</div>
+							</div>
+							<p class="date"><em>By {{ post["author"] }}</em></p>
+							<h3 class="title"><a href="#"><b class="light-color">{{ post["title"] }}</b></a></h3>
+							<p class="desc">{{ markdown(post["body"]) }}</p>
+							<ul>
+								{% for tag in json_metadata["tags"] %}
+								<li><a class="btn" href="#" style="padding: 10px; margin-top: 20px">{{ tag }}</a></li>
+								{% endfor %}
+							</ul>
+						</div><!-- single-post -->
+					</div>
+				</div><!-- col-lg-4 -->
+			</div><!-- row -->
+		</div><!-- container -->
+	</section><!-- section -->
+</div>
+{% endblock %}
